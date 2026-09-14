@@ -533,8 +533,14 @@ function normalizeTag(tag){
 
 function isLadder(r){
   const mode = (r.gameMode || '').toLowerCase();
-  return mode === 'ladder' || mode === 'ladder_crownrush' || mode === 'ranked1v1';
+
+  return (
+    mode === 'ladder' ||
+    mode === 'ladder_crownrush' ||
+    mode.startsWith('ranked1v1')
+  );
 }
+
 
 function isKing007(r){
   const oppTag = normalizeTag(r.opponent_tag);
